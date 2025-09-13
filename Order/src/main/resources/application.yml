@@ -1,0 +1,21 @@
+server:
+  port: 8082
+
+
+spring:
+  application:
+    name: demo-mysql-app
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/manju?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root     # ? replace with your MySQL username
+    password: root # ? replace with your MySQL password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update   # for dev; use validate/none in production
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    show-sql: true
