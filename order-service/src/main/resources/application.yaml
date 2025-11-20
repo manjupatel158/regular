@@ -1,0 +1,27 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: oder-service
+
+
+  kafka:
+    bootstrap-servers: localhost:9092
+
+    consumer:
+          group-id: order-group
+          auto-offset-reset: earliest
+          properties:
+            spring.json.trusted.packages: "*"
+
+    producer:
+          key-serializer: org.apache.kafka.common.serialization.StringSerializer
+          value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+spring-doc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
